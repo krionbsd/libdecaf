@@ -1,5 +1,34 @@
 Important work items for Ed448-Goldilocks / decaf:
 
+* Requirements for autotools:
+The C files required to build are:
+
+src/utils.c
+src/shake.c
+src/sha512.c
+src/spongerng.c
+src/p25519/$(ARCH_FOR_p25519)/*.c
+src/p25519/f_arithmetic.c
+src/p448/$(ARCH_FOR_p448)/*.c
+src/p448/f_arithmetic.c
+and everything in src/GENERATED
+
+The headers are in:
+src/GENERATED/c/p25519
+src/GENERATED/c/p448
+src/GENERATED/include
+src/GENERATED/include/decaf
+src/include
+src/include/$ARCH for the curve you’re compiling
+src/p25519/$(ARCH_FOR_p25519)
+src/p448$(ARCH_FOR_p448)
+src/per_curve
+src/per_field
+src/public_include
+src/public_include/decaf
+
+The final headers are in src/GENERATED/include and src/GENERATED/include/decaf.
+
 * Test signed 32-bit NEON implementation to avoid bias/reduce after subtract
 
 * Documentation: write high-level API docs, and internal docs to help
